@@ -5,8 +5,11 @@
 		<classes>
 			<class name="com.emergya.testSets.GoogleTestSet" >
 				<methods>
-                    <include name="googleMainPageSearch" />
-                    <include name="googleDoSearchAndAccessToPage" />
+                 <!--    <include name="googleMainPageSearch" /> -->
+                <!--  	<include name="googleDoSearchAndAccessToPage" /> -->
+                  <!--    <include name="googleMainPageSearchAmazon" />   -->
+               	    <include name="googleDoSearchAndAccessToAmazonPage" />
+                  <include name="googleDoSearchAndAccessToAmazonFilterPage" />
                 </methods>
             </class>
 		</classes>

@@ -5,16 +5,7 @@ import org.apache.log4j.Logger;
 import com.emergya.selenium.drivers.EmergyaWebDriver;
 import com.emergya.selenium.pageObject.BasePageObject;
 
-/**
- * A Page Object (PO) contain the behavior of a specific page in the application
- * EmergyaMainPage: This PO contain the methods to interact with the emergya
- * main page
- * 
- * @author Ivan Bermudez <ibermudez@emergya.com>
- * @author Jose Antonio Sanchez <jasanchez@emergya.com>
- * @author Ivan Gomez <igomez@emergya.com>
- */
-public class EmergyaMainPage extends BasePageObject {
+public class EmergyaContactPage extends BasePageObject {
 
 	/**
 	 * Logger class initialization.
@@ -25,8 +16,9 @@ public class EmergyaMainPage extends BasePageObject {
 	 * Items keys selectors.
 	 */
 	private static final String IMG_LOGO_EMERGYA = "imgLogoEmergya";
-	private static final String CONTACTO_BUTTON = "contactoButton";
+	private static final String SEVILLA_ADDRESS = "sevillaAddress";
 	private static final String TOP_RIGHT_BUTTON = "topRightButton";
+	private static final String TRABAJA_NOSOTROS_BUTTON = "trabajaNosotros";
 
 	/**
 	 * Constructor method
@@ -34,7 +26,7 @@ public class EmergyaMainPage extends BasePageObject {
 	 * @param driver
 	 *            selenium webdriver
 	 */
-	public EmergyaMainPage(EmergyaWebDriver driver) {
+	public EmergyaContactPage(EmergyaWebDriver driver) {
 		super(driver);
 	}
 
@@ -56,27 +48,12 @@ public class EmergyaMainPage extends BasePageObject {
 	}
 
 	/**
-	 * This method click on Contacto Button
+	 * This method click on Top right button
+	 * 
 	 * 
 	 * @return
 	 */
-	public EmergyaMainPage clickOnEmergyaContactoPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnEmergyaContactoPage method");
-
-		if (this.isElementVisibleByXPath(CONTACTO_BUTTON)) {
-			this.getElementByXPath(CONTACTO_BUTTON).click();
-		}
-
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnEmergyaContactoPage method");
-		return new EmergyaMainPage(driver);
-	}
-
-	/**
-	 * This method click on top right button
-	 * 
-	 * @return
-	 */
-	public EmergyaMainPage clickOnEmergyaTopRightButton() {
+	public EmergyaContactPage clickOnEmergyaTopRightButton() {
 		log.info(
 				"[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnEmergyaTopRightButton method");
 
@@ -85,13 +62,29 @@ public class EmergyaMainPage extends BasePageObject {
 		}
 
 		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnEmergyaTopRightButton method");
-		return new EmergyaMainPage(driver);
+		return new EmergyaContactPage(driver);
 	}
 
 	/**
-	 * Check if emergya logo is displayed
+	 * This method click on Trabaja con nosotros button
 	 * 
 	 * @return
+	 */
+	public EmergyaContactPage clickOnEmergyaTrabajaNosotrosButton() {
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+				+ "]- Start clickOnEmergyaTrabajaNosotrosButton method");
+
+		if (this.isElementVisibleByXPath(TRABAJA_NOSOTROS_BUTTON)) {
+			this.getElementByXPath(TRABAJA_NOSOTROS_BUTTON).click();
+		}
+
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+				+ "]- End clickOnEmergyaTrabajaNosotrosButton method");
+		return new EmergyaContactPage(driver);
+	}
+
+	/**
+	 * This method check if Emergya logo is displayed
 	 */
 	public boolean isEmergyaLogoDisplayed() {
 		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isEmergyaLogoDisplayed method");
@@ -100,4 +93,15 @@ public class EmergyaMainPage extends BasePageObject {
 		return this.isElementVisibleById(IMG_LOGO_EMERGYA);
 	}
 
+	/**
+	 * This method check if Emergya Sevilla Address logo is displayed
+	 */
+	public boolean isEmergyaSevillaAddressDisplayed() {
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+				+ "]- Start isEmergyaSevillaAddressDisplayed method");
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+				+ "]- End isEmergyaSevillaAddressDisplayed method");
+
+		return this.isElementVisibleByXPath(SEVILLA_ADDRESS);
+	}
 }

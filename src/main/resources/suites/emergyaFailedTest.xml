@@ -6,7 +6,9 @@
     <classes>
       <class name="com.emergya.testSets.GoogleTestSet">
         <methods>
-          <include name="googleDoSearchAndAccessToPage" />
+          <include name="googleDoSearchAndAccessToAmazonPageFilterPrime" />
+          <include name="googleDoSearchAndAccessToAmazonPageFilterPrimePage" />
+          <include name="accessToAmazonPageFilterPrimePage" />
         </methods>
       </class>
     </classes>
